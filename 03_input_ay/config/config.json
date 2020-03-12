@@ -1,0 +1,51 @@
+{
+  "resource_limits" : {
+    // Allow the submission to run for <RLIMIT_CPU> seconds.
+    "RLIMIT_CPU" : 60,
+    // Allow up to 20 additional processes launched by the student code.
+    "RLIMIT_NPROC" : 20,
+    // Allow for lots of files created (env only 1400!)
+    "RLIMIT_LOCKS": 5000,
+    // Maximum file sizes created (1MB)
+    "RLIMIT_FSIZE": 1000000
+},
+
+  "testcases" : [
+    {
+      "title" : "Output Match",
+      "command" : [ "python3 *.py < input1.txt > STDOUT.txt" ],
+      "points" : 3,
+      "validation" : [
+        {
+          "method" : "diff",
+          "actual_file" : "STDOUT.txt",
+          "expected_file" : "output1.txt"
+        }
+      ]
+    },
+    {
+      "title" : "Output Match",
+      "command" : [ "python3 *.py < input2.txt > STDOUT.txt" ],
+      "points" : 3,
+      "validation" : [
+        {
+          "method" : "diff",
+          "actual_file" : "STDOUT.txt",
+          "expected_file" : "output2.txt"
+        }
+      ]
+    },
+    {
+      "title" : "Output Match",
+      "command" : [ "python3 *.py < input3.txt > STDOUT.txt" ],
+      "points" : 4,
+      "validation" : [
+        {
+          "method" : "diff",
+          "actual_file" : "STDOUT.txt",
+          "expected_file" : "output3.txt"
+        }
+      ]
+    }
+  ]
+}
